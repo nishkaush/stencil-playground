@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/stencil-playground.esm.js"></script>
+    <script nomodule src="/build/stencil-playground.js"></script>
+  </head>
+  <body>
+    <button style="position: absolute; right: 0; top: 0">Show Side Drawer</button>
+    <nk-side-drawer my-title="what!!"></nk-side-drawer>
+
+    <script>
+      const sideDrawer = document.querySelector('nk-side-drawer');
+      const myBtn = document.querySelector('button');
+      myBtn.addEventListener('click', function () {
+        sideDrawer.isOpen = !sideDrawer.isOpen;
+        this.textContent = this.textContent === 'Show Side Drawer' ? 'Hide Side Drawer' : 'Show Side Drawer';
+      });
+    </script>
+  </body>
+</html>
