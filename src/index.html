@@ -12,12 +12,16 @@
     <button style="position: absolute; right: 0; top: 0">Show Side Drawer</button>
     <nk-side-drawer my-title="what!!"></nk-side-drawer>
 
+    <nk-tooltip explanation-text="where you can find anything">Checkout Google</nk-tooltip>
+
     <script>
       const sideDrawer = document.querySelector('nk-side-drawer');
       const myBtn = document.querySelector('button');
+      const myTooltip = document.querySelector('nk-tooltip');
       myBtn.addEventListener('click', function () {
-        sideDrawer.isOpen = !sideDrawer.isOpen;
-        this.textContent = this.textContent === 'Show Side Drawer' ? 'Hide Side Drawer' : 'Show Side Drawer';
+        // sideDrawer.isOpen = !sideDrawer.isOpen;
+        // this.textContent = this.textContent === 'Show Side Drawer' ? 'Hide Side Drawer' : 'Show Side Drawer';
+        myTooltip.handleIconClick();
       });
     </script>
   </body>

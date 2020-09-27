@@ -10,6 +10,11 @@ export namespace Components {
         "isOpen": boolean;
         "myTitle": string;
     }
+    interface NkTooltip {
+        "explanationText": string;
+        "handleIconClick": () => Promise<void>;
+        "showExplanationText": boolean;
+    }
 }
 declare global {
     interface HTMLNkSideDrawerElement extends Components.NkSideDrawer, HTMLStencilElement {
@@ -18,8 +23,15 @@ declare global {
         prototype: HTMLNkSideDrawerElement;
         new (): HTMLNkSideDrawerElement;
     };
+    interface HTMLNkTooltipElement extends Components.NkTooltip, HTMLStencilElement {
+    }
+    var HTMLNkTooltipElement: {
+        prototype: HTMLNkTooltipElement;
+        new (): HTMLNkTooltipElement;
+    };
     interface HTMLElementTagNameMap {
         "nk-side-drawer": HTMLNkSideDrawerElement;
+        "nk-tooltip": HTMLNkTooltipElement;
     }
 }
 declare namespace LocalJSX {
@@ -27,8 +39,13 @@ declare namespace LocalJSX {
         "isOpen"?: boolean;
         "myTitle"?: string;
     }
+    interface NkTooltip {
+        "explanationText"?: string;
+        "showExplanationText"?: boolean;
+    }
     interface IntrinsicElements {
         "nk-side-drawer": NkSideDrawer;
+        "nk-tooltip": NkTooltip;
     }
 }
 export { LocalJSX as JSX };
@@ -36,6 +53,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "nk-side-drawer": LocalJSX.NkSideDrawer & JSXBase.HTMLAttributes<HTMLNkSideDrawerElement>;
+            "nk-tooltip": LocalJSX.NkTooltip & JSXBase.HTMLAttributes<HTMLNkTooltipElement>;
         }
     }
 }
